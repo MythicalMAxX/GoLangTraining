@@ -2,6 +2,7 @@ package main
 
 import "fmt"
 
+// Ckey class contains composite keys
 type Ckey struct {
 	name string
 	age  int

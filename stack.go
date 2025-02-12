@@ -2,17 +2,17 @@ package main
 
 import "fmt"
 
-// represents a stack data structure
+// Stack represents a stack data structure
 type Stack struct {
 	items []int
 }
 
-// adds an element to the stack
+// Push adds an element to the stack
 func (s *Stack) Push(item int) {
 	s.items = append(s.items, item)
 }
 
-// removes and returns the top element of the stack
+// Pop removes and returns the top element of the stack
 func (s *Stack) Pop() (int, error) {
 	if len(s.items) == 0 {
 		return 0, fmt.Errorf("stack is empty")

@@ -2,17 +2,17 @@ package main
 
 import "fmt"
 
-// represents a queue data structure
+// Queue data structure
 type Queue struct {
 	items []int
 }
 
-// adds an element to the queue
+// Enqueue adds an element to the queue
 func (q *Queue) Enqueue(item int) {
 	q.items = append(q.items, item)
 }
 
-// removes and returns the front element of the queue
+// Dequeue removes and returns the front element of the queue
 func (q *Queue) Dequeue() (int, error) {
 	if len(q.items) == 0 {
 		return 0, fmt.Errorf("queue is empty")
