@@ -1,9 +1,16 @@
-# Day 1: Go Environment & Basic Syntax
-- Setting up Go environment (GOPATH, Go Modules, workspace) ✅
-- Go tools ecosystem (go mod, go fmt, go vet, golint) ✅
-- Package management and visibility (public/private) ✅
-- Multiple return values and named returns ✅
-- Basic syntax and common patterns ✅
-- Arrays vs Slices (internal structure) ✅
-- Interfaces ✅
- 
+# Day 2: Go Data Structures
+- Maps with composite keys ✅
+- Struct tags and reflection basics ✅
+- Memory layout and performance implications ✅
+- Make vs New ✅
+- Value vs pointer semantics ✅
+- Implementing stack and queue with slices ✅
+- Custom map keys ✅
+- Efficient string manipulation ✅
+- Working with bytes and runes ✅
+- UTF-8 handling in Go ✅
+# Implementation:
+- Implement a task tracking system using maps and slices
+- Tasks should have priority, status, and deadlines
+- Implement sorting by different criteria
+- Implement custom JSON marshaling
