@@ -1,16 +1,23 @@
-# Day 2: Go Data Structures
-- Maps with composite keys ✅
-- Struct tags and reflection basics ✅
-- Memory layout and performance implications ✅
-- Make vs New ✅
-- Value vs pointer semantics ✅
-- Implementing stack and queue with slices ✅
-- Custom map keys ✅
-- Efficient string manipulation ✅
-- Working with bytes and runes ✅
-- UTF-8 handling in Go ✅
-# Implementation:
-- Implement a task tracking system using maps and slices
-- Tasks should have priority, status, and deadlines
-- Implement sorting by different criteria
-- Implement custom JSON marshaling
+# Day3
+## Topic	Type Conversions & Control Flow	 	 	 	 	 
+ 	 	 	 	 	 	 
+### Subject	
+- Primitive data types (int, float64, string, bool)		✅ 
+- Type conversions (int to float, string to int, etc.)	 ✅
+- Constants and iota ✅
+- Conditional statements (if, else, switch, fallthrough)	✅ 	 	 
+- Loops: for, range, break, continue	✅ 	 		 	 
+- Using goto (when to use it, and when to avoid it)	 ✅	 	 	 	 
+- Defer statements and their execution order ✅	 	 	  	 	 
+- Garbage collection behavior in Go	 	 ✅	 	 	 
+- Idiomatic error handling (errors.New, fmt.Errorf, errors.Is/As)	 	  ✅	 
+- Custom error types	 	 	 ✅
+- Logging strategies (log, logrus, zap)	 	✅ 	 	 	 
+- Panic and recovery best practices	 	 	✅ 		
+
+### Asssignment	Reference
+- Write a program that takes user input as a string and converts it into an integer and a float ✅
+- Implement a simple program that checks the type of a variable dynamically	 ✅
+- Convert a slice of bytes into a string and vice versa ✅
+- Write a program that demonstrates the difference between stack and heap allocations using new and make	 ✅
+- Implement structured logging with zap     ✅
