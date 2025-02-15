@@ -1,0 +1,579 @@
+
+Main menu
+
+
+
+Search
+Donations
+Create account
+Log in
+
+Personal tools
+Photograph your local culture, help Wikipedia and win!
+
+[dismiss]
+ The Wikibooks community is developing a policy on the use of generative AI. Please review the draft policy and provide feedback on its talk page.
+
+Contents hide
+Beginning
+Detailed descriptions of featured books
+Toggle Detailed descriptions of featured books subsection
+New featured books
+Humanities
+Languages
+Social sciences
+Science, mathematics, and engineering
+Computing
+Miscellaneous and recreational activities
+Wikijunior
+Featured books
+Wikibooks:Featured books
+
+14 languages
+Project page
+Discussion
+Read
+View source
+View history
+
+Tools
+Appearance hide
+Text
+
+Small
+
+Standard
+
+Large
+Width
+
+Standard
+
+Wide
+	 Nominate a Wikibook
+Found a wikibook you like? Click this link to nominate it as a featured book.	Related Pages
+Book List	Nominations	Criteria	Templates
+Shortcut:
+WB:FB
+Featured books are quality books that the community believes to be the best of what Wikibooks has to offer and should inspire people to improve the quality of other books. To nominate one of our Wikibooks, visit the Nominations page. All nominations should meet the minimum criteria to be featured.
+
+Detailed descriptions of featured books
+New featured books
+Our latest
+
+The OpenSSH suite provides secure remote access and file transfer. With the book OpenSSH you can learn how to use the OpenSSH client, server, and key utilities, allowing you to benefit from their extensive capabilities.
+Image credit
+  edit blurb
+
+
+
+Linear algebra is about solving systems of linear equations. The Linear Algebra book helps students master a standard undergraduate linear algebra course — Gaussian reduction, vector spaces, linear maps, determinants, and eigenvalues and eigenvectors — using a developmental approach in which results are proved rather than merely presented.
+Image credit
+  edit blurb
+
+
+
+The Non-Programmer's Tutorial for Python 3 provides a concise introduction to Python 3, a popular general-purpose programming language.
+Image credit
+  edit blurb
+
+
+Humanities
+Visit Department:Humanities to find even more.
+
+From Rome to the present day, European History is a sweeping textbook of the continent's history placed in its proper context. Designed for AP European History students.
+Image credit
+  edit blurb
+
+
+
+The Guitar is a stringed musical instrument that is played in many different styles of Western music. This book provides lessons on playing styles and techniques.
+Image credit
+  edit blurb
+
+
+
+The Muggles' Guide to Harry Potter is a guidebook to the Harry Potter series. Critical commentary on each chapter, character, object, place, and event is provided in an effort to help the reader better understand detailed content and find connections to the greater storyline.
+Image credit
+  edit blurb
+
+
+
+A concise approach to New Zealand History, this textbook covers the first inhabitants, the Maori, the discovery of New Zealand by the Europeans and some of the significant events that have led up to the way the country is in the present day.
+Image credit
+  edit blurb
+
+
+Languages
+Visit Department:Languages to find even more.
+
+Latin was the everyday language of the Romans and the basis of Romance languages. Studying Latin will make it easy to learn any such language. As you learn this classical language, you'll connect with Julius Caesar and many other famous Romans. Furthermore, the study of Latin will develop a firm linguistic foundation, bridging the gap between you and some of the greatest writers, scientists, and thinkers.
+Image credit
+  edit blurb
+
+
+
+The Miskito language is spoken by nearly 200,000 people in Nicaragua and Honduras. Miskitu Aisas! ("Speak Miskito!") presents the language through graded, user-friendly lessons.
+Image credit
+  edit blurb
+
+
+
+The Spanish language is spoken by over 450 million persons worldwide. Join their number with the help of this engaging beginner's textbook.
+Image credit
+  edit blurb
+
+
+Social sciences
+Visit Department:Social sciences to find even more.
+
+The Advanced Certificate and the Advanced Diploma in Applications of ICT in Libraries permit library staff to obtain accreditation for their skills in the use of ICT. Anyone can make use of the materials and assessment is available in variety of modes, including distance learning.
+Image credit
+  edit blurb
+
+
+
+Blended learning is combining the best of face to face and Web-based technology (e.g., online discussions, self-paced instruction, collaborative learning, streaming video, audio, and text) to accomplish an educational goal.
+Image credit
+  edit blurb
+
+
+
+Cognitive Psychology is a psychological science which is interested in various mind- and brain- related subfields such as cognition, the mental processes that underlie behavior, reasoning, and decision making.
+Image credit
+  edit blurb
+
+
+
+Communication Theory is about transmitting information from one person to another and the ways in which individuals and groups use the technologies of communication.
+Image credit
+  edit blurb
+
+
+
+Everyone has his or her own view of the nature of consciousness. The intention of Consciousness Studies is to expand this view by providing an insight into the various ideas and beliefs on the subject as well as a review of current work in neuroscience.
+Image credit
+  edit blurb
+
+
+
+Elements of Political Communication is a style guide for beginners who want to produce political messages in various media formats. It is not a rule book; rather, it is a set of guidelines to facilitate effective political communication.
+Image credit
+  edit blurb
+
+
+
+From Rome to the present day, European History is a sweeping textbook of the continent's history placed in its proper context. Designed for AP European History students.
+Image credit
+  edit blurb
+
+
+
+Introduction to Paleoanthropology covers the various species and subspecies that gave rise to human beings.
+Image credit
+  edit blurb
+
+
+
+Introduction to Sociology: The first section of this book covers the foundations of sociology, including an introduction to the discipline, the methods of study, and some of the dominant theoretical perspectives. The remaining chapters focus on the different areas of study in sociology.
+Image credit
+  edit blurb
+
+
+
+Learning Theories is a useful guide for both students and teachers to the problem of how to impart learning.
+Image credit
+  edit blurb
+
+
+
+Being aware that you are dreaming, and still remaining asleep, can give you the ability to control your dreams. Lucid dreaming truly can be a fantastic experience.
+Image credit
+  edit blurb
+
+
+
+Groups are everywhere; whether in our social lives, our work, or even our families, individuals decide to work collectively to achieve particular goals. In Managing Groups and Teams we take a challenge-based approach, one that focuses on the "how" of managing a group or a team.
+Image credit
+  edit blurb
+
+
+
+A concise approach to New Zealand History, this textbook covers the first inhabitants, the Maori, the discovery of New Zealand by the Europeans and some of the significant events that have led up to the way the country is in the present day.
+Image credit
+  edit blurb
+
+
+
+Social and Cultural Foundations of American Education is essential reading for US teachers. It was created and edited as part of an education course, ECI 301, at Old Dominion University in Norfolk, VA. The book's primary contributors have been undergraduate, preservice teachers.
+Image credit
+  edit blurb
+
+
+
+Stuttering, or stammering, is a developmental disorder with several possible causes, and a range of treatments. The Stuttering book is part of a series on Speech-Language Pathology.
+Image credit
+  edit blurb
+
+
+
+UK Constitution and Government is the perfect introduction for high school lessons on UK government. It is also a quick guide for people of other nations to get some insight into the arcane governance of the UK with its powerless head of state and all powerful House of Commons.
+Image credit
+  edit blurb
+
+
+
+A zine is a do-it-yourself magazine. Learn the techniques involved in creating and distributing your own zines.
+Image credit
+  edit blurb
+
+
+Science, mathematics, and engineering
+Visit Department:Science, Department:Mathematics, or Department:Engineering to find even more.
+
+Acoustics is the science that studies sound, in particular its production, transmission, and effects.
+Image credit
+  edit blurb
+
+
+
+Veterinary nurses need to have a firm grasp of the normal structure of an animal’s body and how it functions in order to understand the effect diseases and injuries have and the best ways to treat them. Anatomy and Physiology of Animals describes the structure of the animal body and the way in which it works.
+Image credit
+  edit blurb
+
+
+
+Nuclear Medicine is a fascinating application of nuclear physics. The first ten chapters of this wikibook are intended to support a basic introductory course in an early semester of an undergraduate program. Additional chapters cover more advanced topics in this field.
+Image credit
+  edit blurb
+
+
+
+Control Systems is an inter-disciplinary engineering text that analyzes the effects and interactions of mathematical systems. This book is for third and fourth year undergraduates in an engineering program.
+Image credit
+  edit blurb
+
+
+
+Engineering Acoustics is the study of the generation and manipulation of sound waves, from an engineering perspective. Requires knowledge of Calculus and Ordinary Differential Equations.
+Image credit
+  edit blurb
+
+
+
+First Aid covers all topics required for a standard first aid course. The basics covered include: primary assessment, circulatory & respiratory emergencies, internal injuries, and medical conditions. The chapter on advanced topics covers AED operation, oxygen, airway management, and triage.
+Image credit
+  edit blurb
+
+
+
+Formal Logic is a study of inference with purely formal content. The first rules of formal logic were written over 2300 years ago by Aristotle and are still vital to many modern disciplines like Linguistics and Computer Science.
+Image credit
+  edit blurb
+
+
+
+Fundamentals of Transportation is aimed at undergraduate civil engineering students, though the material may provide a useful review for practitioners and graduate students in transportation. The book is divided into three main parts: planning, operations, and design. Find out how an idea becomes a road!
+Image credit
+  edit blurb
+
+
+
+High School Mathematics Extensions is aimed at, but not limited to, 14 to 18 year olds who are interested in mathematics in general. Several interesting topics not covered in the standard high school curriculum are introduced in this text.
+Image credit
+  edit blurb
+
+
+
+Historical geology is a subset of geology which aims at a reconstruction of the history of the Earth.
+Image credit
+  edit blurb
+
+
+
+Human Physiology explains, system by system, the workings of your body. It is intended as an understandable undergraduate-level guide to how the body systems function at a cellular level and how they work together to maintain a favorable environment for your cells. You and your class are invited to use and improve this book!
+Image credit
+  edit blurb
+
+
+
+Linear algebra is about solving systems of linear equations. The Linear Algebra book helps students master a standard undergraduate linear algebra course — Gaussian reduction, vector spaces, linear maps, determinants, and eigenvalues and eigenvectors — using a developmental approach in which results are proved rather than merely presented.
+Image credit
+  edit blurb
+
+
+
+The Physics Study Guide is meant as a supplement to a year-long freshman-level physics course with a trigonometry prerequisite.
+Image credit
+  edit blurb
+
+
+
+Proteomics is the study of the proteome, the set of proteins expressed in a certain cell at a specified time given specific conditions. In order to fully understand proteomics, one must first understand what proteins are. A protein is a macromolecule that consists of a long chain of amino acids.
+Image credit
+  edit blurb
+
+
+
+Radiation Oncology is a concise review of the radiation oncology field including a review of pertinent literature. Designed as a primer for students of radiation oncology, but may also be useful for those in practice to review areas of interest.
+Image credit
+
+
+
+Special Relativity is an introductory text for physics undergraduates and advanced high school students. It is also approachable by the educated layman. It is carefully designed to tackle the physics of simultaneity.
+Image credit
+  edit blurb
+
+
+
+This Quantum World is an introduction to the subject of quantum mechanics, following the historical development of the theory. Physics and mathematics required, not for the faint of heart.
+Image credit
+  edit blurb
+
+
+Computing
+Visit Department:Computing to find even more.
+
+Ada Programming is a tutorial teaching the Ada programming language. Ada puts unique emphasis on, and provides strong support for, good software engineering practices that scale well to very large software systems (millions of lines of code, and very large development teams).
+Image credit
+  edit blurb
+
+
+
+The Algorithms book aims to be an accessible introduction into the design and analysis of efficient algorithms.
+Image credit
+  edit blurb
+
+
+
+Blender 3D is a cross-platform, open source 3D modeling and animation package. It can be used to create photo-realistic images, animated films, CGI special effects and computer games. This book provides an excellent collection of tutorials to help you learn to model, render, rig, animate, and create with Blender 3D. You will be turned from a newbie to a pro in minutes!
+Image credit
+  edit blurb
+
+
+
+C Programming is a tutorial teaching the C programming language. C is the most commonly used programming language for writing operating systems. Not only is C the language of operating systems, it is the precursor and inspiration for almost all of the most popular high-level languages available today. In fact, Perl, PHP, and Python are all written in C.
+Image credit
+  edit blurb
+
+
+
+The C# Programming Language is an object-oriented programming language developed by Microsoft as part of the .NET initiative. This book will discuss and explain this powerful language.
+Image credit
+  edit blurb
+
+
+
+Haskell is a lazy functional programming language with a state of the art type system. This tutorial aims to be friendly enough for new programmers, yet deep enough to challenge the most experienced.
+Image credit
+  edit blurb
+
+
+
+A desktop PC is a complicated piece of electrical equipment, and constructing one from parts is no small feat. Learn How To Assemble A Desktop PC with this informative wikibook.
+Image credit
+  edit blurb
+
+
+
+Ever wonder what the relationship was between the C programming language, Assembly Language, and machine code on the x86 family of microprocessors? Learn the art of disassembly and reverse engineering on the x86 platform with the x86 Disassembly wikibook!
+Image credit
+  edit blurb
+
+
+
+Knoppix is a Linux distribution that runs completely from a CD or DVD. There is no need for installation—it bypasses installed software and automatically detects hardware.
+Image credit
+  edit blurb
+
+
+
+LaTeX is one of the best languages for marking up technical documents to provide a quality publication.
+Image credit
+  edit blurb
+
+
+
+Python is a modern programming language, powerful yet easy to learn. This tutorial book targets at people who have never programmed before. It provides both an introduction to Python and to computer programming in general.
+Image credit
+  edit blurb
+
+
+
+The OpenSSH suite provides secure remote access and file transfer. With the book OpenSSH you can learn how to use the OpenSSH client, server, and key utilities, allowing you to benefit from their extensive capabilities.
+Image credit
+  edit blurb
+
+
+
+The Non-Programmer's Tutorial for Python 3 provides a concise introduction to Python 3, a popular general-purpose programming language.
+Image credit
+  edit blurb
+
+
+
+This collection of e-primers, on the subjects of Free Open Source Software and Information and Communications Technology has been donated to Wikibooks by the UNDP-APDIP.
+Image credit
+  edit blurb
+
+
+
+In this advanced Haskell tutorial we'll implement a significant subset of Scheme. We assume no prior Haskell knowledge, but progress quickly. If you're feeling ambitious, why not Write Yourself a Scheme in 48 Hours?
+Image credit
+  edit blurb
+
+
+
+XForms is the world-wide-web standard for building feature-rich web applications without requiring any knowledge of JavaScript. The XForms wikibook provides an in-depth tutorial and cookbook-style examples of over 90 working XForms applications.
+Image credit
+  edit blurb
+
+
+
+eXtensible Markup Language (XML) is a widely-used computer language for creating and designing pages on the web and for defining other languages with more specialized purposes. XML - Managing Data Exchange provides a detailed description of XML, its origins, its programming, and its uses on the Internet today.
+Image credit
+  edit blurb
+
+
+Miscellaneous and recreational activities
+Visit Department:Miscellaneous or Department:Recreational activities to find even more.
+
+Arimaa is a two-player 8-by-8 board game with simple rules, but a very large selection of moves. Most Arimaa positions defy precise calculation, and the game's creator hoped it would prove easier for humans than for computers. In 2015, however, a bot defeated three top human players, winning the Arimaa Challenge.
+Image credit
+  edit blurb
+
+
+
+Blended learning is combining the best of face to face and Web-based technology (e.g., online discussions, self-paced instruction, collaborative learning, streaming video, audio, and text) to accomplish an educational goal.
+Image credit
+  edit blurb
+
+
+
+Chess is an ancient strategy game for two players. In this book, not only will you learn to play chess, but you will also master it. This book is great for beginners, but also for anyone else interested in chess - even a chess master.
+Image credit
+  edit blurb
+
+
+
+Coaching Youth Middle Distance Runners is a book for coaches who train athletes aged between 6 and 18 years old to participate in running events between 800 and 5,000 m. Topics discussed include nutritional concerns, psychological considerations, effective training methods, and competition strategies. Special attention is given to potential differences between genders. An appendix includes selections for further reading.
+Image credit
+  edit blurb
+
+
+
+Using Wikibooks is your guidebook to navigating the roles and uses of Wikibooks. From becoming a reader, to contributing as a writer, and beyond, each chapter aims to explore its many aspects, and to provide the pertinent information to know for getting the most out of your journey.
+Image credit
+  edit blurb
+
+
+Wikijunior
+Visit the Wikijunior page to see all the books available for children from birth to age 12.
+
+Children can explore all the letters of the alphabet in Alphabet.
+Image credit
+  edit blurb
+
+
+
+
+
+Children can explore all the wild letters with their animal pals in Animal Alphabet.
+Image credit
+  edit blurb
+
+
+
+
+
+Wild cats are some of Earth's grandest treasures, and their stories excite the imagination of kids of all ages. Big Cats helps to explore this fascinating family.
+Image credit
+  edit blurb
+
+
+
+
+
+Biology is about all living things, like animals, trees, and other plants.
+Image credit
+  edit blurb
+
+
+
+Young readers can have fun learning about Europe at Wikijunior:Europe. Europe has over 700 million people, and over 40 countries.
+Image credit
+  edit blurb
+
+
+
+In Food Alphabet children get an introduction to the different types of foods that they may or may not be familiar with so that they can become familiar with the letters of the alphabet.
+Image credit
+  edit blurb
+
+
+
+
+
+Explore and discover the human body, an incredible machine, with Human Body. For children ages 8–12.
+Image credit
+  edit blurb
+
+
+
+
+
+Kings and Queens of England takes a look at the various people and families that have held the crown and presents it in a manner appropriate for young people.
+Image credit
+  edit blurb
+
+
+
+Kids can explore the history and construction of the world's most spoken languages with Languages.
+Image credit
+  edit blurb
+
+
+
+
+
+Small Numbers helps children count to ten and learn the meaning of numbers by pointing out real-life situations in which they play a role.
+Image credit
+  edit blurb
+
+
+
+
+
+Outer space is the final frontier for humans. Even though the rest of the solar system objects may seem like tiny dots from Earth, our celestial neighbors are still important to learn about, because they aren't really just dots. Solar System presents this material in a manner inviting to young astronomers everywhere.
+Image credit
+  edit blurb
+
+
+
+
+
+In World at Work children can explore various jobs around the world, including a rickshaw driver from Bangladesh and a waitress from the United States of America. For ages 4–7.
+Image credit
+  edit blurb
+
+
+
+
+Featured books
+Acoustics (PDF) — Ada Programming (PDF) — Algorithms (PDF) — Anatomy and Physiology of Animals (PDF) — Applications of ICT in Libraries (PDF) — Arimaa — A-level Computing/AQA — Basic Physics of Nuclear Medicine (PDF) — Blended Learning in K-12 — Blender 3D: Noob to Pro — C Programming (PDF) — Chess (PDF) — Coaching Youth Middle Distance Runners (PDF) — Cognitive Psychology and Cognitive Neuroscience (PDF) — Communication Theory (PDF) — Consciousness Studies (PDF) — Control Systems (PDF) — C# Programming (PDF) — Elements of Political Communication — Engineering Acoustics (PDF) — European History (PDF) — First Aid (PDF) — Formal Logic (PDF) — Fundamentals of Transportation (PDF) — Guitar (PDF) — Haskell (PDF) — High School Mathematics Extensions (PDF) — Historical Geology — How To Assemble A Desktop PC (PDF) — Human Physiology (PDF) — Introduction to Paleoanthropology (PDF) — Introduction to Sociology — Knowing Knoppix — Latin (PDF) — LaTeX (PDF) — Learning Theories (PDF) — Linear Algebra — Lucid Dreaming (PDF) — Managing Groups and Teams (PDF) — Miskito — Muggles' Guide to Harry Potter (PDF) — New Zealand History (PDF) — Non-Programmer's Tutorial for Python 2.6 (PDF) — Non-Programmer's Tutorial for Python 3 (PDF) — OpenSSH (PDF) — Physics Study Guide — Proteomics — Radiation Oncology — Social and Cultural Foundations of American Education — Spanish (PDF) — Special Relativity (PDF) — Stuttering (PDF) — This Quantum World (PDF) — UK Constitution and Government (PDF) — UNDP-APDIP Books — Using Wikibooks (PDF) — Wikijunior:Alphabet — Wikijunior:Animal Alphabet — Wikijunior:Big Cats (PDF) — Wikijunior:Biology (PDF) — Wikijunior:Europe — Wikijunior:Food Alphabet — Wikijunior:Human Body — Wikijunior:Languages (PDF) — Wikijunior:Kings and Queens of England (PDF) — Wikijunior:Small Numbers — Wikijunior:Solar System (PDF) — Wikijunior:World at Work — Write Yourself a Scheme in 48 Hours (PDF) — x86 Disassembly (PDF) — XForms — XML - Managing Data Exchange — Zine Making
+
+
+
+Recognized good books from previous discontinued efforts.
+Category: Wikibooks
+This page was last edited on 30 June 2024, at 10:42.
+Text is available under the Creative Commons Attribution-ShareAlike License; additional terms may apply. By using this site, you agree to the Terms of Use and Privacy Policy.
+Privacy policyAbout WikibooksDisclaimersCode of ConductDevelopersStatisticsCookie statementMobile view
+
+
+
+Search
+Wikibooks:Featured books
+
+14 languages
+Add topic
