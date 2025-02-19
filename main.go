@@ -159,6 +159,9 @@ func (wp *WorkerPool) scaleWorkers() {
 		wp.workerCount++
 		go wp.worker(wp.workerCount)
 		wp.logger.Info("Scaled up worker", zap.Int("NewWorkerCount", wp.workerCount))
+	} else if len(wp.jobs) < cap(wp.jobs)/4 && wp.workerCount > 1 {
+		wp.workerCount--
+		wp.logger.Info("Scaled down worker", zap.Int("NewWorkerCount", wp.workerCount))
 	}
 }
 
@@ -199,9 +202,18 @@ func processFiles(ctx context.Context, files []string) {
 		heap.Push(pq, &FileJob{filepath: file, size: info.Size()})
 	}
 
+	ticker := time.NewTicker(500 * time.Millisecond)
+	defer ticker.Stop()
+
 	for pq.Len() > 0 {
-		fileJob := heap.Pop(pq).(*FileJob)
-		wp.AddFile(fileJob)
+		select {
+		case <-ticker.C:
+			fileJob := heap.Pop(pq).(*FileJob)
+			wp.AddFile(fileJob)
+		case <-ctx.Done():
+			wp.logger.Warn("Processing cancelled")
+			return
+		}
 	}
 	wp.MonitorResults()
 
@@ -219,7 +231,7 @@ func main() {
 		logger.Fatal("Failed to read directory", zap.Error(err))
 	}
 
-	ctx, cancel := context.WithTimeout(context.Background(), 15*time.Second)
+	ctx, cancel := context.WithTimeout(context.Background(), 15*time.Second) // Timeout Implementation
 
 	defer cancel()
 
