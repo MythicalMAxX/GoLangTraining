@@ -6,13 +6,19 @@ import (
 	"gorm.io/gorm"
 )
 
-// List of all models that need to be migrated
-var Models = []interface{}{
-	&models.Member{},
-}
-
 // RunMigrations performs all database migrations
 func RunMigrations(db *gorm.DB) error {
-	// This will automatically create/update tables based on struct definitions
-	return db.AutoMigrate(Models...)
+	// Create enum types if they don't exist
+	db.Exec(`DO $$ BEGIN
+        CREATE TYPE membership_type AS ENUM ('standard', 'premium', 'vip');
+        EXCEPTION WHEN duplicate_object THEN NULL;
+    END $$;`)
+
+	db.Exec(`DO $$ BEGIN
+        CREATE TYPE member_status AS ENUM ('active', 'inactive', 'suspended');
+        EXCEPTION WHEN duplicate_object THEN NULL;
+    END $$;`)
+
+	// Run auto migrations
+	return db.AutoMigrate(&models.Member{}, &models.Borrow{})
 }

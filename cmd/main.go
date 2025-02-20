@@ -12,11 +12,20 @@ import (
 )
 
 func main() {
+	// Initialize DB with connection pooling
 	db, err := config.InitDB()
 	if err != nil {
 		fmt.Println("Failed to connect to database:", err)
 		return
 	}
+
+	// Get underlying *sql.DB to ensure connections are closed properly
+	sqlDB, err := db.DB()
+	if err != nil {
+		fmt.Println("Failed to get database instance:", err)
+		return
+	}
+	defer sqlDB.Close()
 
 	// Initialize repositories, services, and handlers
 	memberRepo := repositories.NewMemberRepository(db)

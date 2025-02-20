@@ -106,6 +106,51 @@ func (h *MemberHandler) Delete(c *gin.Context) {
 	c.JSON(http.StatusOK, gin.H{"message": "Member deleted successfully"})
 }
 
+func (h *MemberHandler) AddBorrow(c *gin.Context) {
+	var req models.BorrowRequest
+	if err := c.ShouldBindJSON(&req); err != nil {
+		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+		return
+	}
+
+	borrow, err := h.memberService.CreateBorrow(req)
+	if err != nil {
+		c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
+		return
+	}
+
+	c.JSON(http.StatusCreated, models.RegisterResponse{
+		UserID:  borrow.UserID,
+		Message: "Borrow record created successfully",
+		Body:    borrow,
+		Status:  201,
+	})
+}
+
 func GetStatus(c *gin.Context) {
 	c.JSON(http.StatusOK, gin.H{"message": "Server is running"})
+}
+
+func (h *MemberHandler) GetMembers(c *gin.Context) {
+    var req models.GetMembersRequest
+    if err := c.ShouldBindQuery(&req); err != nil {
+        c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+        return
+    }
+    
+    // Set default values if not provided
+    if req.Page <= 0 {
+        req.Page = 1
+    }
+    if req.PageSize <= 0 {
+        req.PageSize = 10
+    }
+    
+    response, err := h.memberService.GetMembers(req)
+    if err != nil {
+        c.JSON(http.StatusInternalServerError, gin.H{"error": "Failed to fetch members"})
+        return
+    }
+    
+    c.JSON(http.StatusOK, response)
 }

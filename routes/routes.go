@@ -15,5 +15,7 @@ func SetupRoutes(r *gin.Engine, memberHandler *handlers.MemberHandler) {
 		v1.DELETE("/member/:id", memberHandler.Delete)
 		v1.PATCH("/member/:id", memberHandler.Modify)
 		v1.PUT("/member/:id", memberHandler.Update)
+		v1.POST("/borrow", memberHandler.AddBorrow)
+		v1.GET("/members", memberHandler.GetMembers)
 	}
 }
