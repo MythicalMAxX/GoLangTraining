@@ -13,8 +13,119 @@ import (
 
 var db *gorm.DB
 
-func updateMemberByID(c *gin.Context) {}
-func modifyMemberByID(c *gin.Context) {}
+type UpdateMemberRequest struct {
+	Name           *string    `json:"name"`
+	Email          *string    `json:"email"`
+	Phone          *string    `json:"phone"`
+	Address        *string    `json:"address"`
+	Membershiptype *string    `json:"membershipType"`
+	JoinDate       *time.Time `json:"joinDate"`
+	Status         *string    `json:"status"`
+}
+
+func updateMemberByID(c *gin.Context) {
+	id := c.Param("id")
+
+	// First verify member exists
+	var member models.Member
+	result := db.First(&member, id)
+	if result.Error != nil {
+		if result.Error == gorm.ErrRecordNotFound {
+			c.JSON(http.StatusNotFound, gin.H{"error": "Member not found"})
+			return
+		}
+		c.JSON(http.StatusInternalServerError, gin.H{"error": "Failed to retrieve member"})
+		return
+	}
+
+	// For PUT, we require all fields
+	var req models.Member
+	if err := c.ShouldBindJSON(&req); err != nil {
+		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+		return
+	}
+
+	// Preserve the ID and update all other fields
+	req.ID = member.ID // Keep the original ID
+
+	// Update the entire record
+	result = db.Model(&member).Updates(req)
+	if result.Error != nil {
+		c.JSON(http.StatusInternalServerError, gin.H{"error": "Failed to update member"})
+		return
+	}
+
+	// Fetch the updated record
+	db.First(&member, id)
+
+	response := RegisterResponse{
+		UserID:  member.ID,
+		Message: "Member updated successfully",
+		Body:    member,
+		Status:  200,
+	}
+
+	c.JSON(http.StatusOK, response)
+}
+
+func modifyMemberByID(c *gin.Context) {
+	// Get id from URL parameter
+	id := c.Param("id")
+
+	// Get member from database
+	var member models.Member
+	result := db.First(&member, id)
+	if result.Error != nil {
+		if result.Error == gorm.ErrRecordNotFound {
+			c.JSON(http.StatusNotFound, gin.H{"error": "Member not found"})
+			return
+		}
+		c.JSON(http.StatusInternalServerError, gin.H{"error": "Failed to retrieve member"})
+		return
+	}
+
+	// For PATCH, we accept partial updates
+	var req UpdateMemberRequest
+	if err := c.ShouldBindJSON(&req); err != nil {
+		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+		return
+	}
+
+	// Update only provided fields
+	if req.Name != nil {
+		member.Name = *req.Name
+	}
+	if req.Email != nil {
+		member.Email = *req.Email
+	}
+	if req.Phone != nil {
+		member.Phone = *req.Phone
+	}
+	if req.Address != nil {
+		member.Address = *req.Address
+	}
+	if req.Membershiptype != nil {
+		member.Membershiptype = *req.Membershiptype
+	}
+	if req.JoinDate != nil {
+		member.JoinDate = *req.JoinDate
+	}
+	if req.Status != nil {
+		member.Status = *req.Status
+	}
+
+	// Save changes
+	result = db.Save(&member)
+	if result.Error != nil {
+		c.JSON(http.StatusInternalServerError, gin.H{"error": "Failed to update member"})
+		return
+	}
+
+	c.JSON(http.StatusOK, gin.H{
+		"message": "Member modified successfully",
+		"data":    member,
+	})
+}
 
 func deleteMemberByID(c *gin.Context) {
 	// Get id from URL parameter
@@ -84,11 +195,10 @@ func getMemberByID(c *gin.Context) {
 }
 
 type RegisterRequest struct {
-	Name     string `json:"name" binding:"required"`
-	Email    string `json:"email" binding:"required,email"`
-	Password string `json:"password" binding:"required,min=6"`
-	Phone    string `json:"phone" binding:"required"`
-	Address  string `json:"address" binding:"required"`
+	Name    string `json:"name" binding:"required"`
+	Email   string `json:"email" binding:"required,email"`
+	Phone   string `json:"phone" binding:"required"`
+	Address string `json:"address" binding:"required"`
 }
 
 type RegisterResponse struct {
@@ -169,8 +279,8 @@ func main() {
 	router.GET("/api/v1/member/:id", getMemberByID)
 	router.POST("/api/v1/member/register", registerUser)
 	router.DELETE("api/v1/member/:id", deleteMemberByID)
-	router.PATCH("api/v1/member/:id", updateMemberByID)
-	router.PUT("api/v1/member/:id", modifyMemberByID)
+	router.PATCH("api/v1/member/:id", modifyMemberByID)
+	router.PUT("api/v1/member/:id", updateMemberByID)
 
 	// Start the server
 	router.Run(":8080")
