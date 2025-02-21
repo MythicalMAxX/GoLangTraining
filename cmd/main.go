@@ -1,43 +1,60 @@
 package main
 
 import (
-	"fmt"
+	"log"
 	"mypackage/config"
-	"mypackage/internal/handlers"
 	"mypackage/internal/repositories"
 	"mypackage/internal/services"
+	"mypackage/pkg/worker"
 	"mypackage/routes"
-
-	"github.com/gin-gonic/gin"
+	"os"
+	"os/signal"
+	"syscall"
 )
 
 func main() {
-	// Initialize DB with connection pooling
+	// Initialize database connections
 	db, err := config.InitDB()
 	if err != nil {
-		fmt.Println("Failed to connect to database:", err)
-		return
+		log.Fatalf("Failed to initialize databases: %v", err)
 	}
 
-	// Get underlying *sql.DB to ensure connections are closed properly
-	sqlDB, err := db.DB()
-	if err != nil {
-		fmt.Println("Failed to get database instance:", err)
-		return
+	// Initialize repositories
+	orderRepo := repositories.NewOrderRepository(db.PostgresDB)
+	inventoryRepo := repositories.NewInventoryRepository(db.PostgresDB)
+	userRepo := repositories.NewUserRepository(db.PostgresDB)
+	orderHistoryRepo := repositories.NewOrderHistoryRepository(db.MongoDB)
+
+	// Initialize services
+	orderService := services.NewOrderService(
+		db.PostgresDB,
+		orderRepo,
+		inventoryRepo,
+		orderHistoryRepo,
+	)
+
+	inventoryService := services.NewInventoryService(inventoryRepo)
+	userService := services.NewUserService(userRepo)
+
+	// Initialize and start order worker
+	orderWorker := worker.NewOrderWorker(orderService, 4)
+	orderWorker.Start()
+
+	// Setup graceful shutdown
+	quit := make(chan os.Signal, 1)
+	signal.Notify(quit, syscall.SIGINT, syscall.SIGTERM)
+
+	go func() {
+		<-quit
+		log.Println("Shutting down worker...")
+		orderWorker.Stop()
+	}()
+
+	// Setup router with all services
+	r := routes.SetupRouter(orderService, inventoryService, userService)
+
+	log.Println("Server starting on :8080")
+	if err := r.Run(":8080"); err != nil {
+		log.Fatalf("Failed to start server: %v", err)
 	}
-	defer sqlDB.Close()
-
-	// Initialize repositories, services, and handlers
-	memberRepo := repositories.NewMemberRepository(db)
-	memberService := services.NewMemberService(memberRepo)
-	memberHandler := handlers.NewMemberHandler(memberService)
-
-	// Initialize Gin router
-	router := gin.Default()
-
-	// Setup routes
-	routes.SetupRoutes(router, memberHandler)
-
-	// Start the server
-	router.Run(":8080")
 }
