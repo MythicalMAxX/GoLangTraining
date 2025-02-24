@@ -4,7 +4,7 @@ import (
 	"errors"
 	"time"
 
-	jwt "github.com/golang-jwt/jwt/v4" // Update import to v4
+	jwt "github.com/golang-jwt/jwt/v4" 
 )
 
 var (

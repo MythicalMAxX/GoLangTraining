@@ -24,7 +24,7 @@ func SetupRouter(orderService *services.OrderService, inventoryService *services
 	public := r.Group("/api/v1")
 	{
 		public.POST("/login", userHandler.Login)
-		public.POST("/users", userHandler.CreateUser) // Allow user creation without auth
+		public.POST("/users", userHandler.CreateUser) // Allows user creation without auth
 	}
 
 	// Protected routes (auth required)

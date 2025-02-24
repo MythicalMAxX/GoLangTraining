@@ -65,7 +65,8 @@ func initPostgres() (*gorm.DB, error) {
 		return nil, err
 	}
 
-	// 1. First create extensions and types in a separate transaction
+	// Transaction Implementation Walkthrough
+	// First create extensions and types in a separate transaction
 	err = db.Transaction(func(tx *gorm.DB) error {
 		// Create UUID extension
 		if err := tx.Exec("CREATE EXTENSION IF NOT EXISTS \"uuid-ossp\";").Error; err != nil {
@@ -89,7 +90,7 @@ func initPostgres() (*gorm.DB, error) {
 		return nil, fmt.Errorf("failed to initialize extensions: %v", err)
 	}
 
-	// 2. Then auto-migrate models to create tables
+	// Then auto-migrate models to create tables
 	if err := db.AutoMigrate(
 		&models.User{},
 		&models.Order{},
@@ -98,7 +99,7 @@ func initPostgres() (*gorm.DB, error) {
 		return nil, fmt.Errorf("failed to migrate models: %v", err)
 	}
 
-	// 3. Create indexes after tables exist
+	// Create indexes after tables exist
 	indexes := []string{
 		"CREATE INDEX IF NOT EXISTS idx_users_email ON users(email)",
 		"CREATE INDEX IF NOT EXISTS idx_orders_user_id ON orders(user_id)",
@@ -112,7 +113,7 @@ func initPostgres() (*gorm.DB, error) {
 		}
 	}
 
-	// 4. Configure connection pool
+	// Configure connection pool
 	sqlDB, err := db.DB()
 	if err != nil {
 		return nil, err
@@ -129,7 +130,7 @@ func initPostgres() (*gorm.DB, error) {
 	sqlDB.SetConnMaxLifetime(connMaxLifetime)
 	sqlDB.SetConnMaxIdleTime(connMaxIdleTime)
 
-	// 5. Verify connection
+	// Verify connection
 	if err := sqlDB.Ping(); err != nil {
 		return nil, fmt.Errorf("failed to ping database: %v", err)
 	}

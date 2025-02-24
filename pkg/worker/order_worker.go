@@ -17,7 +17,7 @@ type OrderWorker struct {
 	workerCount  int
 	workQueue    chan struct{}
 	metrics      *WorkerMetrics
-	schedulerWg  sync.WaitGroup  // Add this line for scheduler wait group
+	schedulerWg  sync.WaitGroup
 }
 
 type WorkerMetrics struct {
@@ -47,9 +47,6 @@ func (m *WorkerMetrics) getMetrics() (processed int64, errors int64) {
 }
 
 func NewOrderWorker(orderService services.OrderServiceInterface, initialWorkers int) *OrderWorker {
-	if initialWorkers <= 0 {
-		initialWorkers = 1
-	}
 	return &OrderWorker{
 		orderService: orderService,
 		interval:     time.Minute,
@@ -131,8 +128,8 @@ func (w *OrderWorker) Start() {
 		return
 	}
 	w.isRunning = true
-	w.stopChan = make(chan struct{})  // Reset stop channel
-	w.workQueue = make(chan struct{}, 100)  // Reset work queue
+	w.stopChan = make(chan struct{})       // Reset stop channel
+	w.workQueue = make(chan struct{}, 100) // Reset work queue
 
 	// Start multiple workers
 	for i := 0; i < w.workerCount; i++ {
@@ -177,22 +174,22 @@ func (w *OrderWorker) Stop() {
 	}
 	log.Println("Initiating worker shutdown...")
 	w.isRunning = false
-	
+
 	// Signal stop to all workers and scheduler
 	close(w.stopChan)
-	
+
 	// Close work queue after all workers have stopped
 	log.Println("Closing work queue...")
 	close(w.workQueue)
-	
+
 	// Wait for all workers to finish
 	log.Println("Waiting for workers to finish...")
 	w.wg.Wait()
-	
+
 	// Wait for scheduler to finish
 	log.Println("Waiting for scheduler to finish...")
 	w.schedulerWg.Wait()
-	
+
 	log.Println("Worker shutdown complete")
 }
 
