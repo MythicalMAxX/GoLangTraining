@@ -45,12 +45,12 @@ func main() {
 	signal.Notify(quit, syscall.SIGINT, syscall.SIGTERM)
 
 	go func() {
-        <-quit
-        log.Println("Shutting down server...")
-        orderWorker.Stop()
-        log.Println("Server shutdown complete")
-        os.Exit(0)
-    }()
+		<-quit
+		log.Println("Shutting down server...")
+		orderWorker.Stop()
+		log.Println("Server shutdown complete")
+		os.Exit(0)
+	}()
 
 	// Setup router with all services
 	r := routes.SetupRouter(orderService, inventoryService, userService)

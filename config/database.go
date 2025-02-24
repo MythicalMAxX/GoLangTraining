@@ -65,7 +65,7 @@ func initPostgres() (*gorm.DB, error) {
 		return nil, err
 	}
 
-	// Transaction Implementation Walkthrough
+	// Initial Transaction Implementation
 	// First create extensions and types in a separate transaction
 	err = db.Transaction(func(tx *gorm.DB) error {
 		// Create UUID extension

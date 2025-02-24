@@ -195,6 +195,7 @@ func (w *OrderWorker) Stop() {
 
 func (w *OrderWorker) processOrders(ctx context.Context) error {
 	log.Println("Processing pending orders...")
+	w.scaleWorkers()	// Scales Workers Periodically
 	err := w.orderService.ProcessPendingOrders(ctx)
 	if err != nil {
 		log.Printf("Error processing orders: %v", err)
