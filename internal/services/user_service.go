@@ -25,3 +25,7 @@ func (s *UserService) GetUser(id uuid.UUID) (*models.User, error) {
 func (s *UserService) GetAllUsers() ([]models.User, error) {
     return s.repo.GetAll()
 }
+
+func (s *UserService) GetUserByEmail(email string) (*models.User, error) {
+    return s.repo.FindByEmail(email)
+}

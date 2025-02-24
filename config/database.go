@@ -4,7 +4,9 @@ import (
 	"context"
 	"crypto/tls"
 	"fmt"
+	"log"
 	"mypackage/internal/models"
+	"mypackage/pkg/jwt"
 	"os"
 	"time"
 
@@ -24,6 +26,12 @@ func InitDB() (*Database, error) {
 	if err := godotenv.Load(); err != nil {
 		return nil, err
 	}
+
+	jwtSecret := os.Getenv("JWT_SECRET_KEY")
+	if jwtSecret == "" {
+		return nil, fmt.Errorf("JWT_SECRET_KEY is requied")
+	}
+	jwt.SetSecretKey([]byte(jwtSecret))
 
 	// PostgreSQL connection
 	postgresDB, err := initPostgres()
@@ -46,10 +54,10 @@ func InitDB() (*Database, error) {
 func initPostgres() (*gorm.DB, error) {
 	dsn := os.Getenv("URI")
 
-	// Add performance configs
 	config := &gorm.Config{
-		PrepareStmt:            true,
-		SkipDefaultTransaction: true,
+		PrepareStmt:                              true,
+		SkipDefaultTransaction:                   true,
+		DisableForeignKeyConstraintWhenMigrating: true,
 	}
 
 	db, err := gorm.Open(postgres.Open(dsn), config)
@@ -57,61 +65,106 @@ func initPostgres() (*gorm.DB, error) {
 		return nil, err
 	}
 
-	// 1. Create UUID extension first
-	if err := db.Exec("CREATE EXTENSION IF NOT EXISTS \"uuid-ossp\";").Error; err != nil {
-		return nil, err
+	// 1. First create extensions and types in a separate transaction
+	err = db.Transaction(func(tx *gorm.DB) error {
+		// Create UUID extension
+		if err := tx.Exec("CREATE EXTENSION IF NOT EXISTS \"uuid-ossp\";").Error; err != nil {
+			return fmt.Errorf("failed to create uuid extension: %v", err)
+		}
+
+		// Create enum type with error handling
+		if err := tx.Exec(`DO $$ 
+        BEGIN 
+            IF NOT EXISTS (SELECT 1 FROM pg_type WHERE typname = 'order_status') THEN
+                CREATE TYPE order_status AS ENUM ('pending', 'processing', 'completed', 'canceled');
+            END IF;
+        END $$;`).Error; err != nil {
+			return fmt.Errorf("failed to create order_status enum: %v", err)
+		}
+
+		return nil
+	})
+
+	if err != nil {
+		return nil, fmt.Errorf("failed to initialize extensions: %v", err)
 	}
 
-	// 2. Create enum type
-	if err := db.Exec(`DO $$ BEGIN
-        CREATE TYPE order_status AS ENUM ('pending', 'processing', 'completed', 'canceled');
-    EXCEPTION
-        WHEN duplicate_object THEN null;
-    END $$;`).Error; err != nil {
-		return nil, err
+	// 2. Then auto-migrate models to create tables
+	if err := db.AutoMigrate(
+		&models.User{},
+		&models.Order{},
+		&models.Inventory{},
+	); err != nil {
+		return nil, fmt.Errorf("failed to migrate models: %v", err)
 	}
 
-	// 3. Auto-migrate models to create tables
-	if err := db.AutoMigrate(&models.User{}, &models.Order{}, &models.Inventory{}); err != nil {
-		return nil, err
+	// 3. Create indexes after tables exist
+	indexes := []string{
+		"CREATE INDEX IF NOT EXISTS idx_users_email ON users(email)",
+		"CREATE INDEX IF NOT EXISTS idx_orders_user_id ON orders(user_id)",
+		"CREATE INDEX IF NOT EXISTS idx_orders_inventory_id ON orders(inventory_id)",
+		"CREATE INDEX IF NOT EXISTS idx_orders_status ON orders(status)",
 	}
 
-	// 4. Create indexes after tables exist
-	if err := db.Exec(`CREATE INDEX IF NOT EXISTS idx_orders_inventory_id ON orders(inventory_id)`).Error; err != nil {
-		return nil, err
+	for _, idx := range indexes {
+		if err := db.Exec(idx).Error; err != nil {
+			log.Printf("Warning: failed to create index: %v", err)
+		}
 	}
 
+	// 4. Configure connection pool
 	sqlDB, err := db.DB()
 	if err != nil {
 		return nil, err
 	}
 
-	// Set connection pool settings
-	sqlDB.SetMaxOpenConns(5)
-	sqlDB.SetMaxIdleConns(5)
-	sqlDB.SetConnMaxLifetime(time.Minute * 10)
-	sqlDB.SetConnMaxIdleTime(time.Minute * 10)
+	// Get connection pool settings from env
+	maxOpenConns := 5
+	maxIdleConns := 5
+	connMaxLifetime := time.Minute * 10
+	connMaxIdleTime := time.Minute * 10
+
+	sqlDB.SetMaxOpenConns(maxOpenConns)
+	sqlDB.SetMaxIdleConns(maxIdleConns)
+	sqlDB.SetConnMaxLifetime(connMaxLifetime)
+	sqlDB.SetConnMaxIdleTime(connMaxIdleTime)
+
+	// 5. Verify connection
+	if err := sqlDB.Ping(); err != nil {
+		return nil, fmt.Errorf("failed to ping database: %v", err)
+	}
 
 	return db, nil
 }
 
 func initMongo() (*mongo.Database, error) {
-	ctx, cancel := context.WithTimeout(context.Background(), 20*time.Second)
+	ctx, cancel := context.WithTimeout(context.Background(), 30*time.Second)
 	defer cancel()
 
+	// Updated MongoDB connection options for replica set
 	opts := options.Client().
 		ApplyURI(os.Getenv("MONGODB_URI")).
-		SetServerAPIOptions(options.ServerAPI(options.ServerAPIVersion1)).
-		SetTimeout(20 * time.Second).
-		SetServerSelectionTimeout(20 * time.Second).
-		SetTLSConfig(&tls.Config{MinVersion: tls.VersionTLS12})
+		SetTLSConfig(&tls.Config{
+			MinVersion:         tls.VersionTLS12,
+			InsecureSkipVerify: false, // Changed back to secure mode
+		}).
+		SetTimeout(30 * time.Second).
+		SetServerSelectionTimeout(30 * time.Second).
+		SetRetryWrites(true).
+		SetRetryReads(true).
+		SetDirect(false) // Changed: Remove direct connection for replica sets
 
+	// Create client
 	client, err := mongo.Connect(ctx, opts)
 	if err != nil {
 		return nil, fmt.Errorf("MongoDB connection failed: %v", err)
 	}
 
-	if err := client.Ping(ctx, nil); err != nil {
+	// Ping with longer timeout
+	pingCtx, cancel := context.WithTimeout(context.Background(), 20*time.Second)
+	defer cancel()
+
+	if err := client.Ping(pingCtx, nil); err != nil {
 		return nil, fmt.Errorf("MongoDB ping failed: %v", err)
 	}
 

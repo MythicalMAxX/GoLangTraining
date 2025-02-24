@@ -30,8 +30,11 @@ func (r *OrderRepository) Create(order *models.Order) error {
 
 func (r *OrderRepository) FindByID(id string) (*models.Order, error) {
 	var order models.Order
-	err := r.db.Preload("User").Preload("Inventory").
-		Where("orders.id = ?", id).First(&order).Error
+	err := r.db.
+		Preload("User").
+		Preload("Inventory").
+		Where("orders.id = ?", id).
+		First(&order).Error
 	if err != nil {
 		return nil, err
 	}
@@ -40,8 +43,12 @@ func (r *OrderRepository) FindByID(id string) (*models.Order, error) {
 
 func (r *OrderRepository) FindByUserID(userID string) ([]models.Order, error) {
 	var orders []models.Order
-	err := r.db.Preload("User").Preload("Inventory").
-		Where("user_id = ?", userID).Find(&orders).Error
+	err := r.db.
+		Preload("User").
+		Preload("Inventory").
+		Where("user_id = ?", userID).
+		Order("created_at DESC").
+		Find(&orders).Error
 	return orders, err
 }
 
@@ -61,8 +68,11 @@ func (r *OrderRepository) FindByStatus(status models.OrderStatus) ([]models.Orde
 	}
 
 	var orders []models.Order
-	err := r.db.Preload("User").Preload("Inventory").
+	err := r.db.
+		Preload("User").
+		Preload("Inventory").
 		Where("status = ?", status).
+		Order("created_at DESC").
 		Find(&orders).Error
 	return orders, err
 }
