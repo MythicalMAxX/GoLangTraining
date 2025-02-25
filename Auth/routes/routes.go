@@ -25,7 +25,7 @@ func SetupRouter(authHandler *handlers.AuthHandler) *gin.Engine {
     protected := api.Group("/admin")
     protected.Use(middleware.AuthMiddleware(models.RoleAdmin))
     {
-        // Add admin-only endpoints here
+        // Admin-only endpoints here
     }
 
     return r
